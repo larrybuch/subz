@@ -1,5 +1,6 @@
 class HomeController < ApplicationController
   def index
+    @entrances = Entrance.all
   end
   def create
     Entrance.delete_all
@@ -10,17 +11,16 @@ class HomeController < ApplicationController
 
     count.times do |a|
       @lat = y["data"][a][9][1]
-      @long = y["data"][a][9][1]
+      @long = y["data"][a][9][2]
       @name = y["data"][a][10]
       @lines = y["data"][a][12]
 
       @entrance = Entrance.create(:name => @name, :lat => @lat, :long => @long, :line => @lines)
     end
 
-    
-
     redirect_to entrances_path
   end
   def show
+    @entrances = Entrance.all
   end
 end
