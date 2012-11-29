@@ -1,6 +1,8 @@
 Subz::Application.routes.draw do
 
   get '/' => 'home#index'
+  post '/populate' => 'home#create'
+  get '/entrances' => 'home#show'
 
 
   # The priority is based upon order of creation:
