@@ -1,9 +1,13 @@
-MAP GOES HERE.
+<div class="top"> 
+  <h1>Subway helper <span class="small">Type a street or a line name to find subway entrances</span></h1>
+    <%= form_tag '/search', :remote => true do %>
+      <%= text_field_tag 'query' %>
+    <% end %>
+</div>
 
-<%= render :partial => 'map' %>
+<div id="map_canvas"></div>
+<script>display_map(40.74, -73.934, 12);</script>
 
-<% @entrances.each do |record| %>
-  <script>
-    add_marker(<%= record.lat %>, <%= record.long %>, '<%= record.name %>');
-  </script>
-<% end %>
+<div id="subwaysearch">
+  <%= render :partial => 'shared/entrance', :locals => {:entrances => @entrances} %>
+</div>

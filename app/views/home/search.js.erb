@@ -1,0 +1,5 @@
+$('#map_canvas').empty();
+$('#subwaysearch').empty();
+
+display_map(40.74, -73.934, 12);
+$('#subwaysearch').append("<%=j render :partial => 'shared/entrance', :locals => {:entrances => @entrances} %>");

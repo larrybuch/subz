@@ -12,4 +12,7 @@
 #
 
 class Entrance < ActiveRecord::Base
+  def self.text_search(query)
+   self.where("name @@ :q or line @@ :q", :q => query)
+  end
 end

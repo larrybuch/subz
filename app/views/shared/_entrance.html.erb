@@ -1,0 +1,5 @@
+<% @entrances.each do |record| %>
+  <script>
+    add_marker(<%= record.lat %>, <%= record.long %>, '<%= record.name %>');
+  </script>
+<% end %>
