@@ -1,8 +1,38 @@
-<div class="top"> 
-  <h1>Subway helper <span class="small">Type a street or a line name to find subway entrances</span></h1>
-    <%= form_tag '/search', :remote => true do %>
-      <%= text_field_tag 'query' %>
-    <% end %>
+<div class="top">
+  <h1>Subway helper</h1>
+    <span class="small">Type a street or a line name to find subway entrances, or
+    <span id="pick_a_line">show and hide the lines.</span></span>
+    <div id="search-box">
+      <%= form_tag '/search', :remote => true do %>
+        <%= text_field_tag 'query', 'Type in a street or a line here' %>
+      <% end %>
+    </div>
+</div>
+
+<div class="lines">
+  <input type="button" value="A" id="a" class="circle blue">
+  <input type="button" value="C" id="c" class="circle blue">
+  <input type="button" value="E" id="e" class="circle blue">
+  <input type="button" value="B" id="b" class="circle orange">
+  <input type="button" value="D" id="d" class="circle orange">
+  <input type="button" value="F" id="f" class="circle orange">
+  <input type="button" value="M" id="m" class="circle orange">
+  <input type="button" value="N" id="n" class="circle yellow">
+  <input type="button" value="Q" id="q" class="circle yellow">
+  <input type="button" value="R" id="r" class="circle yellow">
+  <input type="button" value="J" id="j" class="circle brown">
+  <input type="button" value="M" id="m" class="circle brown">
+  <input type="button" value="Z" id="z" class="circle brown">
+  <input type="button" value="1" id="1" class="circle red">
+  <input type="button" value="2" id="2" class="circle red">
+  <input type="button" value="3" id="3" class="circle red">
+  <input type="button" value="4" id="4" class="circle green">
+  <input type="button" value="5" id="5" class="circle green">
+  <input type="button" value="6" id="6" class="circle green">
+  <input type="button" value="7" id="7" class="circle purple">
+  <input type="button" value="G" id="g" class="circle lime-green">
+  <input type="button" value="L" id="l" class="circle gray">
+  <input type="button" value="S" id="s" class="circle gray">
 </div>
 
 <div id="map_canvas"></div>

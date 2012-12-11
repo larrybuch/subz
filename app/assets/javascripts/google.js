@@ -3,6 +3,16 @@ var canvas;
 
 $(function(){
 
+  $('#pick_a_line').click(show_lines);
+  $('.lines').hide();
+  $('.circle').hover(function () {
+      $(this).fadeTo("slow", 0.33);
+    },
+    function () {
+      $(this).fadeTo("fast", 1);
+    });
+
+  $('input[type="text"]').click(function(){$(this).val('');}); //clearing the input value text on click
 });
 
 
@@ -22,4 +32,9 @@ function add_marker(lat, long, title)
 {
   var latlng = new google.maps.LatLng(lat, long);
   var marker = new google.maps.Marker({position: latlng, map: map, title:title});
+}
+
+function show_lines()
+{
+  $('.lines').toggle("slide");
 }
