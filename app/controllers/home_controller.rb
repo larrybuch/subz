@@ -4,7 +4,6 @@ class HomeController < ApplicationController
   end
 
   def create
-    if Subway.blank?
       x = HTTParty.get('http://data.cityofnewyork.us/api/views/drex-xx56/rows.json')
       y = JSON(x.body)
       count = y["data"].length
@@ -15,7 +14,6 @@ class HomeController < ApplicationController
         name = y["data"][a][10]
         lines = y["data"][a][12]
         @entrance = Entrance.create(:name => name, :lat => lat, :long => long, :line => lines)
-      end
     end
     redirect_to entrances_path
   end
